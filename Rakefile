@@ -26,10 +26,9 @@ task :build => [:has_required_files] do
     puts `sudo -u postgres psql tree_dataset < #{shp}`
   end
 
-  create_postgis_db "tree_dataset"
   sql_cmd(
     "tree_dataset",
-    "create table trees( id integer, latin_name varchar(100), area double precision, geom geometry(MultiPolygon, 4326))")
+    "create table trees( id integer, latin_name varchar(100), common_name varchar(100), area double precision, geom geometry(MultiPolygon, 4326))")
 
   sql_cmd(
     "tree_dataset",
@@ -40,7 +39,7 @@ task :build => [:has_required_files] do
 
     sql_cmd(
       "tree_dataset",
-      "insert into trees (latin_name, area, geom) select '#{row[1].strip}', area, geom from #{table}")
+      "insert into trees (latin_name, common_name, area, geom) select '#{row[1].strip}', '#{row[2].strip}', area, geom from #{table}")
 
     sql_cmd(
       "tree_dataset",
