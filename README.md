@@ -1,5 +1,8 @@
 # Tree Dataset
 
+<script type="text/javascript" src="https://gumroad.com/js/gumroad.js"></script>
+<a class="gumroad-button" href="https://gumroad.com/l/AHIV">Buy Support for this Data</a>
+
 This PostgreSQL database contains all the trees in the United
 States. It includes geospatial data about the following trees.
 
